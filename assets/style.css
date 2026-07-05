@@ -1,0 +1,278 @@
+/* ---------------------------------------------------------
+   Design tokens
+   Palette:  paper #F7F5F0 · ink #1C2B3A · brass #9C7A3C
+             slate #5B6672 · line #D8D2C4 · ridge #C9BFA6
+   Type:     display  "Source Serif 4"  (headings, name)
+             body     "IBM Plex Sans"   (running text)
+             mono     "IBM Plex Mono"   (dates, labels, meta)
+--------------------------------------------------------- */
+
+:root {
+  --paper: #f7f5f0;
+  --ink: #1c2b3a;
+  --brass: #9c7a3c;
+  --slate: #5b6672;
+  --line: #d8d2c4;
+  --ridge: #c9bfa6;
+  --max-w: 700px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", -apple-system, "Segoe UI", "Noto Sans TC", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--ridge);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--brass);
+  text-decoration-color: var(--brass);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+/* ---------- Signature element: contour header ----------
+   A thin hand-drawn-feeling isoline, evoking both terrain
+   contour maps and infrastructure/road networks — a nod to
+   the subject's own research materials (roads, energy grids,
+   nighttime-light maps) rather than a decorative flourish.
+------------------------------------------------------------ */
+.contour {
+  display: block;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  height: 28px;
+}
+
+.contour path {
+  fill: none;
+  stroke: var(--ridge);
+  stroke-width: 1.4;
+}
+
+.contour path.accent {
+  stroke: var(--brass);
+}
+
+/* ---------- Layout shell ---------- */
+.shell {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 64px 24px 96px;
+}
+
+header.masthead {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+h1.name {
+  font-family: "Source Serif 4", Georgia, "Noto Serif TC", serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 0.01em;
+  margin: 0 0 28px;
+}
+
+h1.name .zh {
+  margin-right: 0.5em;
+}
+
+h1.name .en {
+  font-size: 0.62em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  vertical-align: 2px;
+}
+
+.role {
+  text-align: center;
+  color: var(--slate);
+  font-size: 0.95rem;
+  margin: 22px 0 0;
+}
+
+/* ---------- Nav ---------- */
+nav.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+  margin: 36px 0 56px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+nav.tabs a {
+  color: var(--slate);
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 2px solid transparent;
+}
+
+nav.tabs a:hover {
+  color: var(--ink);
+}
+
+nav.tabs a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--brass);
+}
+
+/* ---------- Content ---------- */
+main p {
+  margin: 0 0 24px;
+}
+
+main p.lang-zh {
+  font-family: "Noto Sans TC", "IBM Plex Sans", sans-serif;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 44px 0;
+}
+
+.section-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0 0 18px;
+}
+
+/* ---------- Publications ---------- */
+ul.pub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.pub-list li {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+ul.pub-list li:first-child {
+  padding-top: 0;
+}
+
+ul.pub-list li:last-child {
+  border-bottom: none;
+}
+
+.pub-authors {
+  color: var(--ink);
+}
+
+.pub-venue {
+  font-style: italic;
+}
+
+.pub-year {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  color: var(--slate);
+  font-size: 0.9rem;
+}
+
+.pub-links {
+  margin-top: 6px;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.82rem;
+}
+
+.pub-links a {
+  margin-right: 16px;
+}
+
+/* ---------- Files / CV row ---------- */
+.file-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  margin: 8px 0 32px;
+  width: fit-content;
+}
+
+.file-row .icon {
+  color: var(--brass);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  border: 1px solid var(--brass);
+  border-radius: 3px;
+  padding: 3px 7px;
+}
+
+.file-row .meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.92rem;
+}
+
+.file-row .meta .sub {
+  color: var(--slate);
+  font-size: 0.8rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  margin-top: 72px;
+  color: var(--slate);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+footer a {
+  color: var(--slate);
+}
+
+@media (max-width: 520px) {
+  h1.name {
+    font-size: 1.5rem;
+  }
+  nav.tabs {
+    gap: 22px;
+  }
+  .shell {
+    padding: 44px 18px 72px;
+  }
+}
